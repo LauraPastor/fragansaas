@@ -1,39 +1,24 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchPerfumes } from "./store/perfumeSlice";
-import type { RootState, AppDispatch } from "./store";
+import PerfumeGrid from "./components/PerfumeGrid";
+import FilterBar from "./components/FilterBar";
 
 const App = () => {
-  const dispatch = useDispatch<AppDispatch>();
-  const { perfumes, status } = useSelector((state: RootState) => state.perfumes);
-
-  useEffect(() => {
-    dispatch(fetchPerfumes());
-  }, [dispatch]);
-
-  if (status === "loading") return <p className="text-center mt-10">Loading...</p>;
-  if (status === "failed") return <p className="text-center mt-10 text-red-500">Failed to load perfumes.</p>;
 
   return (
-    <div className="p-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-      {perfumes.map(perfume => (
-        <div key={perfume.id} className="bg-white rounded-2xl shadow-md overflow-hidden transform transition duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer text-red-300">
-          <img src={perfume.image} alt={perfume.name} className="h-56 w-full object-cover" />
-          <div className="p-4">
-            <h3 className="text-lg font-semibold">{perfume.name}</h3>
-            <p className="text-sm text-gray-500">{perfume.brand}</p>
-            <p className="mt-2 font-medium">{perfume.price}€</p>
-            <div className="mt-2 flex flex-wrap gap-1">
-              {perfume.notes.map(note => (
-                <span key={note} className="px-2 py-0.5 text-xs bg-gray-100 rounded-full text-gray-600">
-                  {note}
-                </span>
-              ))}
-            </div>
-          </div>
+    <>
+      <div className="text-center pt-14 mb-10">
+        <div className="inline-block relative">
+          <h1 className="text-4xl font-serif font-medium text-gray-900 tracking-wide">
+            F R A G A N
+          </h1>
+          <h2 className="text-xl font-sans font-light text-gray-600 tracking-widest mt-2">
+            S O F T W A R E · A S · A · S E R V I C E
+          </h2>
+          <div className="absolute -bottom-2 left-1/4 w-1/2 h-px bg-gradient-to-r from-transparent via-gray-400 to-transparent"></div>
         </div>
-      ))}
-    </div>
+      </div>
+      <FilterBar />
+      <PerfumeGrid />
+    </>
   );
 }
 
