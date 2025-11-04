@@ -22,7 +22,7 @@ const PerfumeGrid = () => {
                     <p className="text-sm text-gray-500">{perfume.brand}</p>
                     <p className="mt-2 font-medium">{perfume.price}€</p>
                     <div className="mt-2 flex flex-wrap gap-1">
-                        {perfume.scentNotes.map(note => (
+                        {perfume.notes.map(note => (
                             <span key={note} className="px-2 py-0.5 text-xs bg-gray-100 rounded-full text-gray-600">
                                 {note}
                             </span>
