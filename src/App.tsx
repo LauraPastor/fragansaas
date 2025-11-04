@@ -1,5 +1,6 @@
 import PerfumeGrid from "./components/PerfumeGrid";
 import FilterBar from "./components/FilterBar";
+import Cart from "./components/Cart";
 
 const App = () => {
 
@@ -18,6 +19,7 @@ const App = () => {
       </div>
       <FilterBar />
       <PerfumeGrid />
+      <Cart />
     </>
   );
 }

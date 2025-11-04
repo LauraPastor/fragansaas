@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPerfumes } from "../store/perfumeSlice";
 import type { RootState, AppDispatch } from "../store";
+import { addToCart } from "../store/cartSlice";
 
 const PerfumeGrid = () => {
     const dispatch = useDispatch<AppDispatch>();
@@ -21,6 +22,12 @@ const PerfumeGrid = () => {
                     <h3 className="text-lg font-semibold">{perfume.name}</h3>
                     <p className="text-sm text-gray-500">{perfume.brand}</p>
                     <p className="mt-2 font-medium">{perfume.price}€</p>
+                    <button
+                        onClick={() => dispatch(addToCart(perfume))}
+                        className="mt-3 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition"
+                    >
+                        Add to Cart
+                    </button>
                     <div className="mt-2 flex flex-wrap gap-1">
                         {perfume.notes.map(note => (
                             <span key={note} className="px-2 py-0.5 text-xs bg-gray-100 rounded-full text-gray-600">
