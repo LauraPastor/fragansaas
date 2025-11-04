@@ -6,7 +6,7 @@ export interface Perfume {
   name: string;
   brand: string;
   price: number;
-  scentNotes: string[];
+  notes: string[];
   image: string;
 }
 
@@ -88,7 +88,7 @@ function applyFilters(state: PerfumeState) {
       ? p.price <= state.filters.maxPrice
       : true;
     const matchesNote = state.filters.note
-      ? p.scentNotes.some((n) =>
+      ? p.notes.some((n) =>
           n.toLowerCase().includes(state.filters.note.toLowerCase())
         )
       : true;
