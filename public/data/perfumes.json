@@ -1,0 +1,218 @@
+[
+    {
+        "id": 1,
+        "name": "Amber Muse",
+        "brand": "FraganSaaS Originals",
+        "price": 89,
+        "notes": [
+            "Amber",
+            "Vanilla",
+            "Musk"
+        ],
+        "image": "https://images.unsplash.com/photo-1541643600914-78b084683601?w=400"
+    },
+    {
+        "id": 2,
+        "name": "Citrus Dawn",
+        "brand": "FraganSaaS Originals",
+        "price": 75,
+        "notes": [
+            "Bergamot",
+            "Lemon",
+            "Orange Blossom"
+        ],
+        "image": "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=400"
+    },
+    {
+        "id": 3,
+        "name": "Rose Noir",
+        "brand": "Luxe Parfums",
+        "price": 120,
+        "notes": [
+            "Dark Rose",
+            "Patchouli",
+            "Oud"
+        ],
+        "image": "https://images.unsplash.com/photo-1615634260167-c8cdede054de?w=400"
+    },
+    {
+        "id": 4,
+        "name": "Ocean Breeze",
+        "brand": "FraganSaaS Originals",
+        "price": 68,
+        "notes": [
+            "Sea Salt",
+            "Driftwood",
+            "Jasmine"
+        ],
+        "image": "https://images.unsplash.com/photo-1595425970377-c9703cf48b6d?w=400"
+    },
+    {
+        "id": 5,
+        "name": "Velvet Sandalwood",
+        "brand": "Luxe Parfums",
+        "price": 95,
+        "notes": [
+            "Sandalwood",
+            "Cedarwood",
+            "Tonka Bean"
+        ],
+        "image": "https://images.unsplash.com/photo-1587017539504-67cfbddac569?w=400"
+    },
+    {
+        "id": 6,
+        "name": "Lavender Fields",
+        "brand": "Botanical Scents",
+        "price": 72,
+        "notes": [
+            "Lavender",
+            "Sage",
+            "Vetiver"
+        ],
+        "image": "https://images.unsplash.com/photo-1499002238440-d264edd596ec?w=400"
+    },
+    {
+        "id": 7,
+        "name": "Midnight Jasmine",
+        "brand": "FraganSaaS Originals",
+        "price": 85,
+        "notes": [
+            "Jasmine",
+            "Tuberose",
+            "White Musk"
+        ],
+        "image": "https://images.unsplash.com/photo-1613521140785-e85e427f8002?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687w=400"
+    },
+    {
+        "id": 8,
+        "name": "Spiced Chai",
+        "brand": "Botanical Scents",
+        "price": 78,
+        "notes": [
+            "Cardamom",
+            "Cinnamon",
+            "Black Tea"
+        ],
+        "image": "https://images.unsplash.com/photo-1594035910387-fea47794261f?w=400"
+    },
+    {
+        "id": 9,
+        "name": "Wild Peony",
+        "brand": "Luxe Parfums",
+        "price": 105,
+        "notes": [
+            "Peony",
+            "Freesia",
+            "Pink Pepper"
+        ],
+        "image": "https://images.unsplash.com/photo-1613521076081-2820f9746a2d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687?w=400"
+    },
+    {
+        "id": 1,
+        "name": "Amber Muse",
+        "brand": "FraganSaaS Originals",
+        "price": 89,
+        "notes": [
+            "Amber",
+            "Vanilla",
+            "Musk"
+        ],
+        "image": "https://images.unsplash.com/photo-1541643600914-78b084683601?w=400"
+    },
+    {
+        "id": 2,
+        "name": "Citrus Dawn",
+        "brand": "FraganSaaS Originals",
+        "price": 75,
+        "notes": [
+            "Bergamot",
+            "Lemon",
+            "Orange Blossom"
+        ],
+        "image": "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=400"
+    },
+    {
+        "id": 3,
+        "name": "Rose Noir",
+        "brand": "Luxe Parfums",
+        "price": 120,
+        "notes": [
+            "Dark Rose",
+            "Patchouli",
+            "Oud"
+        ],
+        "image": "https://images.unsplash.com/photo-1615634260167-c8cdede054de?w=400"
+    },
+    {
+        "id": 4,
+        "name": "Ocean Breeze",
+        "brand": "FraganSaaS Originals",
+        "price": 68,
+        "notes": [
+            "Sea Salt",
+            "Driftwood",
+            "Jasmine"
+        ],
+        "image": "https://images.unsplash.com/photo-1595425970377-c9703cf48b6d?w=400"
+    },
+    {
+        "id": 5,
+        "name": "Velvet Sandalwood",
+        "brand": "Luxe Parfums",
+        "price": 95,
+        "notes": [
+            "Sandalwood",
+            "Cedarwood",
+            "Tonka Bean"
+        ],
+        "image": "https://images.unsplash.com/photo-1587017539504-67cfbddac569?w=400"
+    },
+    {
+        "id": 6,
+        "name": "Lavender Fields",
+        "brand": "Botanical Scents",
+        "price": 72,
+        "notes": [
+            "Lavender",
+            "Sage",
+            "Vetiver"
+        ],
+        "image": "https://images.unsplash.com/photo-1499002238440-d264edd596ec?w=400"
+    },
+    {
+        "id": 7,
+        "name": "Midnight Jasmine",
+        "brand": "FraganSaaS Originals",
+        "price": 85,
+        "notes": [
+            "Jasmine",
+            "Tuberose",
+            "White Musk"
+        ],
+        "image": "https://images.unsplash.com/photo-1613521140785-e85e427f8002?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687w=400"
+    },
+    {
+        "id": 8,
+        "name": "Spiced Chai",
+        "brand": "Botanical Scents",
+        "price": 78,
+        "notes": [
+            "Cardamom",
+            "Cinnamon",
+            "Black Tea"
+        ],
+        "image": "https://images.unsplash.com/photo-1594035910387-fea47794261f?w=400"
+    },
+    {
+        "id": 9,
+        "name": "Wild Peony",
+        "brand": "Luxe Parfums",
+        "price": 105,
+        "notes": [
+            "Peony",
+            "Freesia",
+            "Pink Pepper"
+        ],
+        "image": "https://images.unsplash.com/photo-1613521076081-2820f9746a2d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687?w=400"
+    }
+]
