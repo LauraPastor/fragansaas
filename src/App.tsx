@@ -12,11 +12,12 @@ const App = () => {
           <h2 className="text-xl font-sans font-light text-gray-600 tracking-widest mt-2">
             S O F T W A R E · A S · A · S E R V I C E
           </h2>
-          <div className="absolute -bottom-2 left-1/4 w-1/2 h-px bg-gradient-to-right from-transparent via-gray-400 to-transparent"></div>
+          <FloatingButtons />
         </div>
       </div>
-      <PerfumeGrid />
-      <FloatingButtons />
+      <div className="w-full mx-auto px-6 sm:px-12 md:px-[6.25rem] bs:px-[15rem] pb-20 drawer-closed">
+        <PerfumeGrid />
+      </div>
     </>
   );
 }
