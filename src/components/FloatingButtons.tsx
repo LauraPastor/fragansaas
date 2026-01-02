@@ -2,11 +2,17 @@ import { useRef, useEffect, useState } from 'react';
 import { ShoppingCart, User, Search } from "lucide-react";
 import CartDrawer from "./CartDrawer";
 import FilterBar from "./FilterBar";
+import { useSelector } from "react-redux";
+import type { RootState } from "../store";
+
 
 const FloatingButtons = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
+  const cartItems = useSelector((state: RootState) => state.cart.items);
+  const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -26,20 +32,30 @@ const FloatingButtons = () => {
 
   return (
     <>
-      <div className="fixed top-4 right-4 flex gap-3 z-40">
-        <button className="p-3 rounded-full hover:bg-gray-100"
+      <div className='fixed top-4 right-4 flex gap-3 z-40'>
+        <button
+          className='p-3 rounded-full hover:bg-gray-100'
           onClick={() => setIsSearchOpen(true)}
-          title="Search">
+          title='Search'>
           <Search size={20} />
         </button>
-        <button className="p-3 rounded-full hover:bg-gray-100" title="User Profile">
+        <button
+          className='p-3 rounded-full hover:bg-gray-100'
+          title='User Profile'>
           <User size={20} />
         </button>
-        <button className="p-3 rounded-full hover:bg-gray-100"
+        <button
+          className='relative p-3 rounded-full hover:bg-gray-100'
           onClick={() => setIsCartOpen(true)}
-          title="Shopping Cart"
-        >
+          title='Shopping Cart'>
           <ShoppingCart size={20} />
+
+          {totalItems > 0 && (
+            <span
+              className='absolute -top-1 -right-1 bg-gray-700 text-white text-xs font-medium min-w-[1.25rem] h-5 px-1 flex items-center justify-center rounded-full'>
+              {totalItems}
+            </span>
+          )}
         </button>
       </div>
       <FilterBar isOpen={isSearchOpen} ref={searchRef} />
