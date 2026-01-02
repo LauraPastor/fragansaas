@@ -17,18 +17,19 @@ const FloatingButtons = () => {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
-        setIsSearchOpen(false);
+        setIsSearchOpen(false)
+        setIsCartOpen(false)
       }
     };
 
-    if (isSearchOpen) {
+    if (isSearchOpen || isCartOpen) {
       document.addEventListener('mousedown', handleClickOutside);
     }
 
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [isSearchOpen]);
+  }, [isSearchOpen, isCartOpen]);
 
   return (
     <>
