@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPerfumes } from "../store/perfumeSlice";
@@ -5,6 +6,8 @@ import type { RootState, AppDispatch } from "../store";
 import { addToCart } from "../store/cartSlice";
 
 const PerfumeGrid = () => {
+    const navigate = useNavigate();
+
     const dispatch = useDispatch<AppDispatch>();
     const { filteredPerfumes: perfumes, status } = useSelector((state: RootState) => state.perfumes);
     const ITEMS_PER_PAGE = 16;
@@ -23,8 +26,8 @@ const PerfumeGrid = () => {
     return <div className="p-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {visiblePerfumes.map((perfume) => (
             <div key={perfume.id} className="bg-white rounded-2xl shadow-md overflow-hidden transform transition duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer text-red-300">
-                <img src={perfume.image} alt={perfume.name} className="h-56 w-full object-cover" />
-                <div className="p-4">
+                <img src={perfume.image} alt={perfume.name} onClick={() => navigate(`/perfume/${perfume.id}`)} className="h-56 w-full object-cover" />
+                <div className="p-4 cursor-default">
                     <h3 className="text-lg font-semibold">{perfume.name}</h3>
                     <p className="text-sm text-gray-500">{perfume.brand}</p>
                     <p className="mt-2 font-medium">{perfume.price}€</p>

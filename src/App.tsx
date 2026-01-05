@@ -1,5 +1,8 @@
-import PerfumeGrid from "./components/PerfumeGrid";
+import { BrowserRouter } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import FloatingButtons from "./components/FloatingButtons";
+import PerfumeGrid from "./components/PerfumeGrid";
+import PerfumeDetails from "./components/PerfumeDetails"
 
 const App = () => {
   return (
@@ -16,7 +19,12 @@ const App = () => {
         </div>
       </div>
       <div className="w-full mx-auto px-6 sm:px-12 md:px-[6.25rem] bs:px-[15rem] pb-20 drawer-closed">
-        <PerfumeGrid />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<PerfumeGrid />} />
+            <Route path="/perfume/:id" element={<PerfumeDetails />} />
+          </Routes>
+        </BrowserRouter>
       </div>
     </>
   );
