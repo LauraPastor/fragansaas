@@ -5,29 +5,41 @@ import FilterBar from "./FilterBar";
 import { useSelector } from "react-redux";
 import type { RootState } from "../store";
 
-
 const FloatingButtons = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const cartRef = useRef<HTMLDivElement>(null);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
   const cartItems = useSelector((state: RootState) => state.cart.items);
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
-
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
-        setIsSearchOpen(false)
-        setIsCartOpen(false)
+      const target = event.target as Node;
+
+      if (
+        isSearchOpen &&
+        searchRef.current &&
+        !searchRef.current.contains(target)
+      ) {
+        setIsSearchOpen(false);
+      }
+
+      if (
+        isCartOpen &&
+        cartRef.current &&
+        !cartRef.current.contains(target)
+      ) {
+        setIsCartOpen(false);
       }
     };
 
     if (isSearchOpen || isCartOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener("mousedown", handleClickOutside);
     }
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [isSearchOpen, isCartOpen]);
 
@@ -60,7 +72,7 @@ const FloatingButtons = () => {
         </button>
       </div>
       <FilterBar isOpen={isSearchOpen} ref={searchRef} />
-      <CartDrawer isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
+      <CartDrawer isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} ref={cartRef} />
     </>
   );
 };
