@@ -8,7 +8,6 @@ import Checkout from "./components/Checkout";
 const App = () => {
   return (
     <BrowserRouter>
-
       <div className="text-center pt-14 mb-10">
         <div className="inline-block relative">
           <h1 className="text-4xl font-serif font-medium text-gray-900 tracking-wide">
