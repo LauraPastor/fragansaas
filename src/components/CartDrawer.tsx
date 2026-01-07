@@ -1,4 +1,5 @@
 import { forwardRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import type { RootState } from "../store";
 import { removeFromCart, updateQuantity, clearCart } from "../store/cartSlice";
@@ -10,6 +11,7 @@ interface CartDrawerProps {
 
 const CartDrawer = forwardRef<HTMLDivElement, CartDrawerProps>(
     ({ isOpen, onClose }, ref) => {
+        const navigate = useNavigate();
         const dispatch = useDispatch();
         const cartItems = useSelector((state: RootState) => state.cart.items);
 
@@ -31,7 +33,7 @@ const CartDrawer = forwardRef<HTMLDivElement, CartDrawerProps>(
                 </div>
 
                 {/* items */}
-                <div className="p-4 overflow-y-auto h-[calc(100%-140px)]">
+                <div className="p-4 overflow-y-auto h-[calc(100%-220px)]">
                     {cartItems.length === 0 ? (
                         <p className="text-gray-500 text-center mt-10">Cart is empty</p>
                     ) : (
@@ -74,11 +76,18 @@ const CartDrawer = forwardRef<HTMLDivElement, CartDrawerProps>(
                 </div>
 
                 {/* footer */}
-                <div className="p-4 border-t flex flex-col gap-2">
+                <div className="p-4 border-t flex flex-col">
                     <div className="flex justify-between">
                         <span className="font-medium">Total:</span>
                         <span className="font-semibold">${total.toFixed(2)}</span>
                     </div>
+
+                    <button
+                        className="mb-4 bg-black text-white py-2 rounded hover:bg-gray-800"
+                        onClick={() => navigate("/checkout")}
+                    >
+                        Go to Checkout
+                    </button>
 
                     <button
                         className="bg-black text-white py-2 rounded hover:bg-gray-800"
