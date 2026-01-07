@@ -2,7 +2,9 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState, AppDispatch } from "../store";
 import { addToCart } from "../store/cartSlice";
+import { fetchPerfumes } from "../store/perfumeSlice";
 import { ArrowLeft } from "lucide-react";
+import { useEffect } from "react";
 
 const PerfumeDetails = () => {
     const { id } = useParams<{ id: string }>();
@@ -11,10 +13,22 @@ const PerfumeDetails = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch<AppDispatch>();
 
+    const perfumes = useSelector((state: RootState) => state.perfumes.perfumes);
+    const status = useSelector((state: RootState) => state.perfumes.status);
+
+    useEffect(() => {
+        if (perfumes.length === 0) {
+            dispatch(fetchPerfumes());
+        }
+    }, [dispatch, perfumes.length]);
+
+
     const perfume = useSelector((state: RootState) =>
         state.perfumes.perfumes.find(p => p.id === perfumeId)
     );
-
+    if (status === "loading") {
+        return <p className="p-8 text-center">Loading perfume…</p>;
+    }
     if (!perfume) {
         return <div className="relative p-8 max-w-6xl mx-auto">
             {/* Floating back arrow */}
