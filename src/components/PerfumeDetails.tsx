@@ -128,6 +128,7 @@ const PerfumeDetails = () => {
 
                     {/* CTA */}
                     <button
+                        data-cart-action="add"
                         onClick={() => dispatch(addToCart(perfume))}
                         className="
           w-full

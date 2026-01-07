@@ -32,6 +32,7 @@ const PerfumeGrid = () => {
                     <p className="text-sm text-gray-500">{perfume.brand}</p>
                     <p className="mt-2 font-medium">{perfume.price}€</p>
                     <button
+                        data-cart-action="add"
                         onClick={() => dispatch(addToCart(perfume))}
                         className="mt-3 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition"
                     >

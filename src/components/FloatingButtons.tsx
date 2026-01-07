@@ -30,6 +30,10 @@ const FloatingButtons = () => {
         cartRef.current &&
         !cartRef.current.contains(target)
       ) {
+        const element = target as HTMLElement;
+        if (element.closest('[data-cart-action="add"]')) {
+          return;
+        }
         setIsCartOpen(false);
       }
     };
