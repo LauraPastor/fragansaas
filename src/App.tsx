@@ -18,6 +18,10 @@ const App = () => {
           </h2>
           <FloatingButtons />
         </div>
+        {/* <div className="w-full h-full overflow-hidden bg-[black] relative video-banner-ratio sm:pb-[57%]">
+          <iframe title="video-banner" id="vimeoPlayer" className="absolute inset-0 w-full h-full" src="https://player.vimeo.com/video/935808557?autoplay=1&amp;controls=0&amp;muted=1&amp;loop=1&amp;title=0&amp;portrait=0&amp;pip=0&amp;byline=0&amp;background=1" allow="autoplay; picture-in-picture" data-ready="true"></iframe>
+        </div> */}
+
       </div>
       <div className="w-full mx-auto px-6 sm:px-12 md:px-[6.25rem] bs:px-[15rem] pb-20 drawer-closed">
         <Routes>

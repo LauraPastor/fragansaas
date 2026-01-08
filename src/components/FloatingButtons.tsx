@@ -1,17 +1,22 @@
 import { useRef, useEffect, useState } from 'react';
 import { ShoppingCart, User, Search } from "lucide-react";
-import CartDrawer from "./CartDrawer";
-import FilterBar from "./FilterBar";
 import { useSelector } from "react-redux";
 import type { RootState } from "../store";
+import FilterBar from "./FilterBar";
+import LogIn from "./LogIn";
+import CartDrawer from "./CartDrawer";
 
 const FloatingButtons = () => {
-  const [isCartOpen, setIsCartOpen] = useState(false);
-  const cartRef = useRef<HTMLDivElement>(null);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const cartRef = useRef<HTMLDivElement>(null);
   const cartItems = useSelector((state: RootState) => state.cart.items);
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+
+
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -23,6 +28,13 @@ const FloatingButtons = () => {
         !searchRef.current.contains(target)
       ) {
         setIsSearchOpen(false);
+      }
+      if (
+        isLoggedIn &&
+        dialogRef.current &&
+        !dialogRef.current.contains(target)
+      ) {
+        setIsLoggedIn(false);
       }
 
       if (
@@ -38,14 +50,14 @@ const FloatingButtons = () => {
       }
     };
 
-    if (isSearchOpen || isCartOpen) {
+    if (isSearchOpen || isCartOpen || isLoggedIn) {
       document.addEventListener("mousedown", handleClickOutside);
     }
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [isSearchOpen, isCartOpen]);
+  }, [isSearchOpen, isCartOpen, isLoggedIn]);
 
   return (
     <>
@@ -57,6 +69,7 @@ const FloatingButtons = () => {
           <Search size={20} />
         </button>
         <button
+          onClick={() => setIsLoggedIn(true)}
           className='p-3 rounded-full hover:bg-gray-100'
           title='User Profile'>
           <User size={20} />
@@ -76,6 +89,7 @@ const FloatingButtons = () => {
         </button>
       </div>
       <FilterBar isOpen={isSearchOpen} ref={searchRef} />
+      <LogIn isOpen={isLoggedIn} onClose={() => setIsLoggedIn(false)} ref={dialogRef} />
       <CartDrawer isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} ref={cartRef} />
     </>
   );
