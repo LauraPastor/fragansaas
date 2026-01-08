@@ -4,6 +4,7 @@ import FloatingButtons from "./components/FloatingButtons";
 import PerfumeGrid from "./components/PerfumeGrid";
 import PerfumeDetails from "./components/PerfumeDetails"
 import Checkout from "./components/Checkout";
+import Register from "./components/Register";
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
           <Route path="/" element={<PerfumeGrid />} />
           <Route path="/perfume/:id" element={<PerfumeDetails />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </div>
     </BrowserRouter>

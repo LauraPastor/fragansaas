@@ -1,4 +1,5 @@
 import React, { forwardRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface LogInProps {
     isOpen: boolean;
@@ -6,7 +7,7 @@ interface LogInProps {
 }
 
 const LogIn = forwardRef<HTMLDivElement, LogInProps>(({ isOpen, onClose }, ref) => {
-
+    const navigate = useNavigate();
     if (!isOpen) return null;
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -80,7 +81,7 @@ const LogIn = forwardRef<HTMLDivElement, LogInProps>(({ isOpen, onClose }, ref) 
                         <h1 className="text-2xl font-medium">Log in</h1>
                         <p className="text-sm text-gray-500">
                             Don’t have an account?{" "}
-                            <button className="underline hover:text-black transition">
+                            <button onClick={() => { onClose(); navigate("/register"); }} className="underline hover:text-black transition">
                                 Register
                             </button>
                         </p>
