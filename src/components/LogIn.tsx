@@ -139,7 +139,7 @@ const LogIn = forwardRef<HTMLDivElement, LogInProps>(({ isOpen, onClose }, ref) 
                         </div>
 
                         {/* CTA */}
-                        <button
+                        <button onClick={() => { onClose(); navigate("/profile"); }}
                             className="
               w-full
               bg-black

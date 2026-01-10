@@ -5,6 +5,7 @@ import PerfumeGrid from "./components/PerfumeGrid";
 import PerfumeDetails from "./components/PerfumeDetails"
 import Checkout from "./components/Checkout";
 import Register from "./components/Register";
+import Profile from "./components/Profile";
 
 const App = () => {
   return (
@@ -30,6 +31,8 @@ const App = () => {
           <Route path="/perfume/:id" element={<PerfumeDetails />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="*" element={<p className="p-8 text-center">Page not found</p>} />
         </Routes>
       </div>
     </BrowserRouter>
