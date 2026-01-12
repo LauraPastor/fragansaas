@@ -5,6 +5,7 @@ import { addToCart } from "../store/cartSlice";
 import { fetchPerfumes } from "../store/perfumeSlice";
 import { ArrowLeft } from "lucide-react";
 import { useEffect } from "react";
+import FavoriteButton from "../components/FavoriteButton";
 
 const PerfumeDetails = () => {
     const { id } = useParams<{ id: string }>();
@@ -89,6 +90,20 @@ const PerfumeDetails = () => {
             >
                 {perfume.name.toUpperCase()}
             </h1>
+            <div
+                className="absolute top-3 right-3 z-10"
+                onClick={(e) => e.stopPropagation()}
+            >
+                <FavoriteButton
+                    item={{
+                        id: perfume.id.toString(),
+                        name: perfume.name,
+                        brand: perfume.brand,
+                        image: perfume.image,
+                    }}
+                />
+            </div>
+
 
             {/* Two-column layout */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">

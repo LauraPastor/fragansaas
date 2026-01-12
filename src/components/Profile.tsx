@@ -8,7 +8,7 @@ const Profile = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="min-h-screen bg-[#faf7f3]">
+        <div className="min-h-screen ">
             {/* HEADER */}
             <header className="relative text-center py-16 px-6">
                 <button
