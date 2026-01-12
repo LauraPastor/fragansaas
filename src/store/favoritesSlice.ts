@@ -2,9 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 export interface FavoriteItem {
-  id: string;
-  brand: string;
+  id: number;
   name: string;
+  brand: string;
+  price: number;
+  notes: string[];
   image: string;
 }
 
@@ -12,8 +14,9 @@ interface FavoritesState {
   items: FavoriteItem[];
 }
 
+const storedFavorites = localStorage.getItem("favorites");
 const initialState: FavoritesState = {
-  items: [],
+  items: storedFavorites ? JSON.parse(storedFavorites) : [],
 };
 
 const favoritesSlice = createSlice({
@@ -30,6 +33,7 @@ const favoritesSlice = createSlice({
       } else {
         state.items.push(action.payload);
       }
+      localStorage.setItem("favorites", JSON.stringify(state.items));
     },
   },
 });
