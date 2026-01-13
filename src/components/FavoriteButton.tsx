@@ -1,7 +1,7 @@
 import { Heart } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleFavorite } from "../store/favoritesSlice";
-import type { FavoriteItem } from "../store/favoritesSlice";
+import { toggleFavorite } from "../features/favorites/favoritesSlice";
+import type { FavoriteItem } from "../features/favorites/favoritesSlice";
 import type { RootState } from "../store";
 
 interface Props {

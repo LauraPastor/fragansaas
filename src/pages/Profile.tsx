@@ -1,10 +1,12 @@
 import { ArrowLeft, Settings, LogOut } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import FavoritesGrid from "./FavoritesGrid";
-import Tab from "./Tab";
-import ListsCard from './ListsCard'
-import FavouritesCard from './FavouritesCard'
+import FavoritesGrid from "../features/favorites/FavoritesGrid";
+import Tab from "../components/Tab";
+import ListsCard from '../components/ListsCard'
+import FavouritesCard from '../features/favorites/FavouritesCard';
+
+// ...existing code...
 
 type ProfileTab = "dashboard" | "favorites" | "lists";
 

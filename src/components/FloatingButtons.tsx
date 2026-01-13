@@ -2,9 +2,9 @@ import { useRef, useEffect, useState } from 'react';
 import { ShoppingCart, User, Search } from "lucide-react";
 import { useSelector } from "react-redux";
 import type { RootState } from "../store";
-import FilterBar from "./FilterBar";
-import LogIn from "./LogIn";
-import CartDrawer from "./CartDrawer";
+import FilterBar from "../features/perfumes/FilterBar";
+import LogIn from "../features/auth/LogInModal";
+import CartDrawer from "../features/cart/CartDrawer";
 
 const FloatingButtons = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);

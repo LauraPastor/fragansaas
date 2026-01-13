@@ -1,8 +1,8 @@
 import { forwardRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import type { RootState } from "../store";
-import { removeFromCart, updateQuantity, clearCart } from "../store/cartSlice";
+import type { RootState } from "../../store";
+import { removeFromCart, updateQuantity, clearCart } from "./cartSlice";
 
 interface CartDrawerProps {
     isOpen: boolean;

@@ -5,8 +5,8 @@ import {
     setPriceFilter,
     setNoteFilter,
     clearFilters,
-} from "../store/perfumeSlice";
-import type { RootState } from "../store";
+} from "./perfumeSlice";
+import type { RootState } from "../../store";
 
 interface FilterBarProps {
     isOpen: boolean;

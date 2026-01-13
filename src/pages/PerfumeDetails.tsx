@@ -1,8 +1,8 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState, AppDispatch } from "../store";
-import { addToCart } from "../store/cartSlice";
-import { fetchPerfumes } from "../store/perfumeSlice";
+import { addToCart } from "../features/cart/cartSlice";
+import { fetchPerfumes } from "../features/perfumes/perfumeSlice";
 import { ArrowLeft } from "lucide-react";
 import { useEffect } from "react";
 import FavoriteButton from "../components/FavoriteButton";

@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import type { RootState, AppDispatch } from "../store";
-import { addToCart } from "../store/cartSlice";
+import type { RootState, AppDispatch } from "../../store";
+import { addToCart } from "../../features/cart/cartSlice";
 import { Heart } from "lucide-react";
 
 const FavoritesGrid = () => {

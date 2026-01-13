@@ -1,10 +1,10 @@
 import { BrowserRouter } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
-import PerfumeGrid from "./components/PerfumeGrid";
-import PerfumeDetails from "./components/PerfumeDetails"
-import Checkout from "./components/Checkout";
-import Register from "./components/Register";
-import Profile from "./components/Profile";
+import PerfumeGrid from "./features/perfumes/PerfumeGrid";
+import PerfumeDetails from "./pages/PerfumeDetails"
+import Checkout from "./pages/Checkout";
+import Register from "./features/auth/RegisterForm";
+import Profile from "./pages/Profile";
 import Header from "./components/Header";
 
 const App = () => {

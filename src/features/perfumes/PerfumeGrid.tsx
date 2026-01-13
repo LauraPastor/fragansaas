@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchPerfumes } from "../store/perfumeSlice";
-import type { RootState, AppDispatch } from "../store";
-import { addToCart } from "../store/cartSlice";
-import FavoriteButton from "../components/FavoriteButton";
+import { fetchPerfumes } from "./perfumeSlice";
+import type { RootState, AppDispatch } from "../../store";
+import { addToCart } from "../../features/cart/cartSlice";
+import FavoriteButton from "../../components/FavoriteButton";
 
 
 const PerfumeGrid = () => {
