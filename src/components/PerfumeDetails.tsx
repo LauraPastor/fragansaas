@@ -96,10 +96,12 @@ const PerfumeDetails = () => {
             >
                 <FavoriteButton
                     item={{
-                        id: perfume.id.toString(),
+                        id: perfume.id,
                         name: perfume.name,
                         brand: perfume.brand,
                         image: perfume.image,
+                        price: perfume.price,
+                        notes: perfume.notes,
                     }}
                 />
             </div>

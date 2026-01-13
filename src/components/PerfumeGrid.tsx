@@ -49,6 +49,8 @@ const PerfumeGrid = () => {
                                 name: perfume.name,
                                 brand: perfume.brand,
                                 image: perfume.image,
+                                price: perfume.price,
+                                notes: perfume.notes,
                             }}
                         />
                     </div>
