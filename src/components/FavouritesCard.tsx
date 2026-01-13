@@ -31,12 +31,17 @@ const FavouriteItem = ({
         <span className="ml-4 text-gray-400">›</span>
     </li>
 );
+interface FavouritesCardProps {
+    onSeeMore: () => void;
+}
 
-const FavouritesCard = () => {
+const FavouritesCard: React.FC<FavouritesCardProps> = ({ onSeeMore }) => {
     const favourites = useSelector(
         (state: RootState) => state.favorites.items
     );
     const navigate = useNavigate();
+
+
     if (favourites.length === 0) {
         return (
             <section className="bg-white rounded-2xl p-6 shadow-sm">
@@ -52,7 +57,7 @@ const FavouritesCard = () => {
         <section className="bg-white rounded-2xl p-6 shadow-sm">
             <div className="flex justify-between items-center mb-6">
                 <h2 className="text-lg font-medium">My favourites</h2>
-                <button className="text-xs uppercase tracking-widest hover:underline">
+                <button className="text-xs uppercase tracking-widest hover:underline" onClick={onSeeMore}>
                     See more
                 </button>
             </div>

@@ -45,7 +45,7 @@ const PerfumeGrid = () => {
                     >
                         <FavoriteButton
                             item={{
-                                id: perfume.id.toString(),
+                                id: perfume.id,
                                 name: perfume.name,
                                 brand: perfume.brand,
                                 image: perfume.image,
