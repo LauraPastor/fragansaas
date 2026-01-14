@@ -31,75 +31,21 @@ const LogIn = forwardRef<HTMLDivElement, LogInProps>(({ isOpen, onClose }, ref) 
 
     return (
         <div
-
-            className="
-        fixed inset-0 z-[201]
-        grid place-items-center
-        bg-black/10
-        px-4 sm:px-12
-      "
-        >
-            <div
-                ref={ref}
-                role="dialog"
-                className="
-          relative
-          flex h-full w-full
-          flex-col
-          bg-white
-          sm:h-auto
-          md:max-w-[720px]
-          md:flex-row
-          rounded-2xl
-          overflow-hidden
-          shadow-xl
-          z-[202]
-        "
-            >
+            className="fixed inset-0 z-[201] grid place-items-center bg-black/10 px-4 sm:px-12">
+            <div ref={ref} role="dialog" className="relative flex h-full w-full flex-col bg-white sm:h-auto md:max-w-[720px] md:flex-row rounded-2xl overflow-hidden shadow-xl z-[202]" >
                 {/* LEFT — IMAGE / BRAND BLOCK */}
-                <div
-                    className="
-            hidden md:flex
-            w-[45%]
-            bg-gradient-to-br
-            from-gray-200 to-gray-300
-            items-center
-            justify-center
-        
-          "
-                >
-
-
-
-
-
-
-
-
+                <div className="hidden md:flex w-[45%] bg-gradient-to-br from-gray-200 to-gray-300 items-center justify-center">
                     <img src="https://assets-v3.wikiparfum.com/api-assets/images/aaZwTs9EzP5KSQ30nuRJEoCokiWUXxqGvUJctAAc-w550-q85.png" alt="flowers" />
-
                 </div>
-
-
-
-
-
 
                 {/* RIGHT — FORM */}
                 <div className="flex-1 p-8 sm:p-10 space-y-8">
                     {/* Close */}
                     <button
                         onClick={onClose}
-                        className="
-              absolute top-4 right-4
-              text-gray-400
-              hover:text-gray-600
-              transition
-            "
+                        className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition"
                         aria-label="Close"
-                    >
-                        ✕
-                    </button>
+                    > ✕</button>
 
                     {/* Header */}
                     <div className="space-y-2">
@@ -121,17 +67,7 @@ const LogIn = forwardRef<HTMLDivElement, LogInProps>(({ isOpen, onClose }, ref) 
                                 type="email"
                                 placeholder="Write your email"
                                 required
-                                className="
-                w-full
-                border
-                border-gray-300
-                rounded-lg
-                px-4 py-3
-                text-sm
-                focus:outline-none
-                focus:border-black
-              "
-                            />
+                                className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-black" />
                         </div>
 
                         {/* Password */}
@@ -143,17 +79,7 @@ const LogIn = forwardRef<HTMLDivElement, LogInProps>(({ isOpen, onClose }, ref) 
                                 type="password"
                                 placeholder="Write your password"
                                 required
-                                className="
-                w-full
-                border
-                border-gray-300
-                rounded-lg
-                px-4 py-3
-                text-sm
-                focus:outline-none
-                focus:border-black
-              "
-                            />
+                                className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-black" />
                             {/* Forgot password */}
                             <div className="text-right">
                                 <button className="text-xs text-gray-500 hover:text-black transition">
@@ -166,18 +92,7 @@ const LogIn = forwardRef<HTMLDivElement, LogInProps>(({ isOpen, onClose }, ref) 
 
                         {/* CTA */}
                         <button onClick={() => { onClose(); navigate("/profile"); }}
-                            className="
-              w-full
-              bg-black
-              text-white
-              py-3
-              uppercase
-              tracking-widest
-              text-sm
-              hover:bg-gray-900
-              transition
-            "
-                        >
+                            className="w-full bg-black text-white py-3 uppercase tracking-widest text-sm hover:bg-gray-900 transition">
                             Access
                         </button>
                     </form>
