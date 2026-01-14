@@ -1,18 +1,24 @@
 import { ArrowLeft, Settings, LogOut } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { logout } from "../features/auth/authSlice";
 import FavoritesGrid from "../features/favorites/FavoritesGrid";
 import Tab from "../components/Tab";
 import ListsCard from '../components/ListsCard'
 import FavouritesCard from '../features/favorites/FavouritesCard';
 
-// ...existing code...
-
 type ProfileTab = "dashboard" | "favorites" | "lists";
 
 const Profile = () => {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const [activeTab, setActiveTab] = useState<ProfileTab>("dashboard");
+
+    const handleLogout = () => {
+        dispatch(logout());
+        navigate("/", { replace: true });
+    };
 
     return (
         <div className="min-h-screen ">
@@ -38,7 +44,7 @@ const Profile = () => {
                     <button className="p-2 rounded-full border" title="settings">
                         <Settings size={18} />
                     </button>
-                    <button className="p-2 rounded-full border" title="log out">
+                    <button className="p-2 rounded-full border" title="log out" onClick={handleLogout} >
                         <LogOut size={18} />
                     </button>
                 </div>
