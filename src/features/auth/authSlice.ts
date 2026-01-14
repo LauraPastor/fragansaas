@@ -10,6 +10,7 @@ export interface User {
 interface AuthState {
   user: User | null;
   isAuthenticated: boolean;
+  showLoginModal: boolean;
   status: "idle" | "loading" | "authenticated" | "error";
   error: string | null;
 }
@@ -23,6 +24,7 @@ const storedUser = localStorage.getItem("auth_user");
 const initialState: AuthState = {
   user: storedUser ? JSON.parse(storedUser) : null,
   isAuthenticated: !!storedUser,
+  showLoginModal: false,
   status: storedUser ? "authenticated" : "idle",
   error: null,
 };
@@ -39,6 +41,7 @@ const authSlice = createSlice({
     loginSuccess(state, action: PayloadAction<User>) {
       state.user = action.payload;
       state.isAuthenticated = true;
+      state.showLoginModal = false;
       state.status = "authenticated";
       state.error = null;
 
@@ -60,10 +63,22 @@ const authSlice = createSlice({
 
       localStorage.removeItem("auth_user");
     },
+    openLoginModal(state) {
+      state.showLoginModal = true;
+    },
+    closeLoginModal(state) {
+      state.showLoginModal = false;
+    },
   },
 });
 
-export const { loginStart, loginSuccess, loginFailure, logout } =
-  authSlice.actions;
+export const {
+  loginStart,
+  loginSuccess,
+  loginFailure,
+  logout,
+  openLoginModal,
+  closeLoginModal,
+} = authSlice.actions;
 
 export default authSlice.reducer;

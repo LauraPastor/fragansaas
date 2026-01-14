@@ -1,8 +1,9 @@
 import { useRef, useEffect, useState } from "react";
 import { ShoppingCart, User, Search } from "lucide-react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
 import type { RootState } from "../store";
+import { closeLoginModal } from "../features/auth/authSlice";
 
 import FilterBar from "../features/perfumes/FilterBar";
 import LogIn from "../features/auth/LogInModal";
@@ -11,6 +12,7 @@ import CartDrawer from "../features/cart/CartDrawer";
 const FloatingButtons = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const dispatch = useDispatch();
 
 
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -21,6 +23,7 @@ const FloatingButtons = () => {
   const dialogRef = useRef<HTMLDivElement>(null);
   const cartRef = useRef<HTMLDivElement>(null);
 
+  const { showLoginModal } = useSelector((state: RootState) => state.auth);
   const cartItems = useSelector((state: RootState) => state.cart.items);
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
@@ -120,8 +123,8 @@ const FloatingButtons = () => {
 
       <FilterBar isOpen={isSearchOpen} ref={searchRef} />
       <LogIn
-        isOpen={isLoginOpen}
-        onClose={() => setIsLoginOpen(false)}
+        isOpen={showLoginModal || isLoginOpen}
+        onClose={() => dispatch(closeLoginModal() || setIsLoginOpen(false))}
         ref={dialogRef}
       />
       <CartDrawer
