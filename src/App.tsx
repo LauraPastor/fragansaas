@@ -1,5 +1,7 @@
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Navigate } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
+import type { RootState } from "./store";
+import { useSelector } from "react-redux";
 import PerfumeGrid from "./features/perfumes/PerfumeGrid";
 import PerfumeDetails from "./pages/PerfumeDetails"
 import Checkout from "./pages/Checkout";
@@ -8,6 +10,9 @@ import Profile from "./pages/Profile";
 import Header from "./components/Header";
 
 const App = () => {
+  const isAuthenticated = useSelector(
+    (state: RootState) => Boolean(state.auth.user)
+  );
   return (
     <BrowserRouter>
       <Header />
@@ -17,7 +22,7 @@ const App = () => {
           <Route path="/perfume/:id" element={<PerfumeDetails />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile" element={isAuthenticated ? <Profile /> : <Navigate to="/" />} />
           <Route path="*" element={<p className="p-8 text-center">Page not found</p>} />
         </Routes>
       </div>
