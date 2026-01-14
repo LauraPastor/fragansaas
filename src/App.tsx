@@ -22,7 +22,7 @@ const App = () => {
           <Route path="/perfume/:id" element={<PerfumeDetails />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/profile" element={isAuthenticated ? <Profile /> : <Navigate to="/" />} />
+          <Route path="/profile" element={isAuthenticated ? <Profile /> : <Navigate to="/" replace />} />
           <Route path="*" element={<p className="p-8 text-center">Page not found</p>} />
         </Routes>
       </div>
