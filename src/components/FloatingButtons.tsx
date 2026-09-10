@@ -3,7 +3,7 @@ import { ShoppingCart, User, Search } from "lucide-react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
 import type { RootState } from "../store";
-import { closeLoginModal } from "../features/auth/authSlice";
+import { openLoginModal, closeLoginModal } from "../features/auth/authSlice";
 
 import FilterBar from "../features/perfumes/FilterBar";
 import LogIn from "../features/auth/LogInModal";
@@ -16,7 +16,6 @@ const FloatingButtons = () => {
 
 
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   const searchRef = useRef<HTMLDivElement>(null);
@@ -45,13 +44,12 @@ const FloatingButtons = () => {
       }
 
       if (
-        isLoginOpen &&
+        showLoginModal &&
         dialogRef.current &&
         !dialogRef.current.contains(target)
       ) {
-        setIsLoginOpen(false);
+        dispatch(closeLoginModal());
       }
-
       if (
         isCartOpen &&
         cartRef.current &&
@@ -63,19 +61,19 @@ const FloatingButtons = () => {
       }
     };
 
-    if (isSearchOpen || isCartOpen || isLoginOpen) {
+    if (isSearchOpen || isCartOpen || showLoginModal) {
       document.addEventListener("mousedown", handleClickOutside);
     }
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [isSearchOpen, isCartOpen, isLoginOpen]);
+  }, [isSearchOpen, isCartOpen, showLoginModal]);
 
   /** USER BUTTON LOGIC */
   const handleUserClick = () => {
     if (!isAuthenticated) {
-      setIsLoginOpen(true);
+      dispatch(openLoginModal());
       return;
     }
 
@@ -123,8 +121,8 @@ const FloatingButtons = () => {
 
       <FilterBar isOpen={isSearchOpen} ref={searchRef} />
       <LogIn
-        isOpen={showLoginModal || isLoginOpen}
-        onClose={() => dispatch(closeLoginModal() || setIsLoginOpen(false))}
+        isOpen={showLoginModal}
+        onClose={() => dispatch(closeLoginModal())}
         ref={dialogRef}
       />
       <CartDrawer

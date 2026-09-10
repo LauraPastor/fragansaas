@@ -24,7 +24,6 @@ const LogIn = forwardRef<HTMLDivElement, LogInProps>(({ isOpen, onClose }, ref) 
                 name: "Laura",
             })
         );
-
         onClose();
         navigate("/profile");
     };
@@ -91,7 +90,7 @@ const LogIn = forwardRef<HTMLDivElement, LogInProps>(({ isOpen, onClose }, ref) 
 
 
                         {/* CTA */}
-                        <button onClick={() => { onClose(); navigate("/profile"); }}
+                        <button type="submit"
                             className="w-full bg-black text-white py-3 uppercase tracking-widest text-sm hover:bg-gray-900 transition">
                             Access
                         </button>
