@@ -14,7 +14,7 @@ const FavoriteButton = ({ item }: Props) => {
 
     const { isAuthenticated } = useSelector((state: RootState) => state.auth);
     const isFavorite = useSelector((state: RootState) =>
-        state.favorites.items.some((fav) => fav.id === item.id)
+        isAuthenticated && state.favorites.items.some((fav) => fav.id === item.id)
     );
 
     const handleClick = (e: React.MouseEvent) => {
